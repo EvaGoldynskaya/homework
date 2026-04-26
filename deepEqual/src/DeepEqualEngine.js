@@ -1,4 +1,4 @@
-import {ArrayComparator, PrimitiveComparator, ObjectComparator, DateComparator, RegExpComparator} from "./comparators/index.js"
+import {ArrayComparator, PrimitiveComparator, ObjectComparator, DateComparator, RegExpComparator, Comparator} from "./comparators/index.js"
 
 export class DeepEqualEngine {
   constructor() {
@@ -26,7 +26,6 @@ export class DeepEqualEngine {
     if (!comparator) {
       throw new Error(`Не найден компаратор для типа: ${typeof a}`);
     }
-    console.log(comparator)
 
     return comparator.compare(a, b, this);
   }

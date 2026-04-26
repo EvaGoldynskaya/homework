@@ -1,5 +1,5 @@
 // Абстрактный базовый класс для сравнения
-class Comparator {
+export class Comparator {
   compare(a, b) {
     throw new Error("Метод compare должен быть переопределен");
   }
@@ -78,5 +78,25 @@ export class RegExpComparator extends Comparator {
 
   compare(a, b) {
     return b instanceof RegExp && a.source === b.source && a.flags === b.flags;
+  }
+}
+
+//Компаратор для типа Map
+export class MapComparator extends Comparator {
+  canHandle(value) {
+    return value instanceof Map;
+  }
+  
+  compare(a, b, context) {
+    if (!(b instanceof Map) || (a.size !== b.size)) {
+      return false;
+    }
+    
+    for (let [key, value] of a) {
+      if (!b.has(key) || !context.deepEqual(value, b.get(key))) {
+         return false;
+      }
+    }
+    return true;
   }
 }

@@ -33,15 +33,11 @@ describe('DeepEqualEngine', () => {
 
   describe('Даты', () => {
     test('одинаковые даты', () => {
-      const date1 = new Date('2026-04-25');
-      const date2 = new Date('2026-04-25');
-      expect(engine.deepEqual(date1, date2)).toBe(true);
+      expect(engine.deepEqual(new Date('2026-04-25'), new Date('2026-04-25'))).toBe(true);
     });
 
     test('разные даты', () => {
-      const date1 = new Date('2026-04-25');
-      const date2 = new Date('2026-04-20');
-      expect(engine.deepEqual(date1, date2)).toBe(false);
+      expect(engine.deepEqual(new Date('2026-04-25'), new Date('2026-04-20'))).toBe(false);
     });
     
   });
