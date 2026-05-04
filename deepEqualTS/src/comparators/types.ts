@@ -30,7 +30,7 @@ export interface LeafComparator<T = unknown> {
   compare(a: T, b: T): boolean;
 }
 
-//
+//Совмещенный тип компаратора для удобства использования
 export type Comparator<T = unknown> = LeafComparator<T> | RecursiveComparator<T>;
 
 
