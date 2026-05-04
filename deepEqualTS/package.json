@@ -1,13 +1,17 @@
 {
-  "name": "deepequal",
+  "name": "deepequalts",
   "version": "1.0.0",
   "type": "module",
   "directories": {
     "test": "test"
   },
+  "jest": {
+   "preset": "ts-jest"
+  },
   "scripts": {
+    "start": "tsx src/index.tsx",
+    "dev": "tsx watch src/index.tsx",
     "test": "node --experimental-vm-modules ../node_modules/jest/bin/jest.js",
     "test:watch": "jest --watch"
-    
   }
 }
