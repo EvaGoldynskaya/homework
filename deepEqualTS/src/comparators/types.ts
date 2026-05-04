@@ -25,12 +25,12 @@ export interface RecursiveComparator<T = unknown> {
 }
 
 //Интерфейс для компараторов где не нужна рекурсия и контекст
-export interface LeafComparator<T = unknown> {
+export interface SimpleComparator<T = unknown> {
   canHandle(value: unknown): value is T;
   compare(a: T, b: T): boolean;
 }
 
 //Совмещенный тип компаратора для удобства использования
-export type Comparator<T = unknown> = LeafComparator<T> | RecursiveComparator<T>;
+export type Comparator<T = unknown> = SimpleComparator<T> | RecursiveComparator<T>;
 
 

@@ -1,4 +1,4 @@
-import { Comparator, RecursiveComparator, LeafComparator, ComparisonContext, DeepEqualValue, DeepEqualOptions } from './comparators/types';
+import { Comparator, RecursiveComparator, SimpleComparator, ComparisonContext, DeepEqualValue, DeepEqualOptions } from './comparators/types';
 import { PrimitiveComparator } from './comparators/PrimitiveComparator';
 import { DateComparator } from './comparators/DateComparator';
 import { RegExpComparator } from './comparators/RegExpComparator';
@@ -59,7 +59,7 @@ export class DeepEqualEngine {
     if (this.isRecursiveComparator(comparator)) {
       result = comparator.compare(a, b, context, depth);
     } else {
-      result = (comparator as LeafComparator).compare(a, b);
+      result = (comparator as SimpleComparator).compare(a, b);
     }
 
     // Очистка visited на случай повторения в объекте

@@ -1,7 +1,7 @@
-import { LeafComparator } from './types';
+import { SimpleComparator } from './types';
 
 // Компаратор для регулярных выражений
-export class RegExpComparator implements LeafComparator<RegExp> {
+export class RegExpComparator implements SimpleComparator<RegExp> {
   canHandle(value: unknown): value is RegExp {
     return value instanceof RegExp;
   }

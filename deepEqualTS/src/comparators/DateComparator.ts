@@ -1,7 +1,7 @@
-import { LeafComparator } from './types';
+import { SimpleComparator } from './types';
 
 // Компаратор для дат
-export class DateComparator implements LeafComparator<Date> {
+export class DateComparator implements SimpleComparator<Date> {
   canHandle(value: unknown): value is Date {
     return value instanceof Date;
   }

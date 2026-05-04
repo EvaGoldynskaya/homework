@@ -1,7 +1,7 @@
-import { LeafComparator, Primitive } from './types';
+import { SimpleComparator, Primitive } from './types';
 
 //
-export class PrimitiveComparator implements LeafComparator<Primitive> {
+export class PrimitiveComparator implements SimpleComparator<Primitive> {
   canHandle(value: unknown): value is Primitive {
     if (value === null || value === undefined) return true;
     const type = typeof value;
