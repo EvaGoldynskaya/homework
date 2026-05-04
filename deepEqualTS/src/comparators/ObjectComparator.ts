@@ -8,6 +8,7 @@ export class ObjectComparator implements RecursiveComparator<Record<string, any>
 
   compare(a: Record<string, any>, b: Record<string, any>, context: ComparisonContext, depth: number): boolean {
     
+    //Проверка на тип и размер
     if (typeof b !== 'object' || b === null) return false;
     const keysA = Object.keys(a);
     const keysB = Object.keys(b);

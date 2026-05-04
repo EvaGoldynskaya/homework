@@ -8,6 +8,7 @@ export class MapComparator implements RecursiveComparator<Map<unknown, unknown>>
 
   compare(a: Map<unknown, unknown>, b: Map<unknown, unknown>, context: ComparisonContext, depth: number): boolean {
     
+    ////Проверка на тип и размер
     if (!(b instanceof Map)) return false;
     if (a.size !== b.size) return false;
     
@@ -17,7 +18,6 @@ export class MapComparator implements RecursiveComparator<Map<unknown, unknown>>
         return false;
       }
     }
-    
     return true;
   }
 }

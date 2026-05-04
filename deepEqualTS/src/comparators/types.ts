@@ -24,10 +24,10 @@ export interface RecursiveComparator<T = unknown> {
   compare(a: T, b: T, context: ComparisonContext, depth: number): boolean;
 }
 
-//Интерфейс для компараторов где не нужна рекурсия
+//Интерфейс для компараторов где не нужна рекурсия и контекст
 export interface LeafComparator<T = unknown> {
   canHandle(value: unknown): value is T;
-  compare(a: T, b: T, context?: ComparisonContext): boolean;
+  compare(a: T, b: T): boolean;
 }
 
 //

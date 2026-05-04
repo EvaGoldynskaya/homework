@@ -9,6 +9,7 @@ export class ArrayComparator implements RecursiveComparator<any[]> {
 
   compare(a: any[], b: any[], context: ComparisonContext, depth: number): boolean {
 
+    //Проверка на тип и размер
     if (!Array.isArray(b)) return false;
     if (a.length !== b.length) return false;
     

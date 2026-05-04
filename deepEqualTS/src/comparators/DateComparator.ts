@@ -1,4 +1,4 @@
-import { LeafComparator, ComparisonContext } from './types';
+import { LeafComparator } from './types';
 
 // Компаратор для дат
 export class DateComparator implements LeafComparator<Date> {
@@ -6,7 +6,7 @@ export class DateComparator implements LeafComparator<Date> {
     return value instanceof Date;
   }
 
-  compare(a: Date, b: Date, context: ComparisonContext): boolean {
+  compare(a: Date, b: Date): boolean {
     if (!(b instanceof Date)) return false;
     return a.getTime() === b.getTime();
   }

@@ -19,7 +19,8 @@ export class DeepEqualEngine {
     ];
   }
 
-  deepEqual<T extends DeepEqualValue>(a: T, b: T, options: DeepEqualOptions = {}): boolean {
+  deepEqual(a: DeepEqualValue, b: DeepEqualValue, options: DeepEqualOptions = {}): boolean {
+    
     //Проверка типов
     if (typeof a !== typeof b) return false;
 
@@ -58,7 +59,7 @@ export class DeepEqualEngine {
     if (this.isRecursiveComparator(comparator)) {
       result = comparator.compare(a, b, context, depth);
     } else {
-      result = (comparator as LeafComparator).compare(a, b, context);
+      result = (comparator as LeafComparator).compare(a, b);
     }
 
     // Очистка visited на случай повторения в объекте

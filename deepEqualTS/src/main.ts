@@ -1,4 +1,5 @@
 import { DeepEqualEngine } from './DeepEqualEngine';
+import { MapComparator } from './comparators/MapComparator';
 
 const engine = new DeepEqualEngine();
 
@@ -35,4 +36,10 @@ console.log("С учетом порядка - " + engine.deepEqual(arr1, arr2, {
 console.log("Без учета порядка - " + engine.deepEqual(arr1, arr2, { ignoreArrayOrder: true }))
 
 
-
+//Добавление нового компаратора и сравнение map 
+engine.addComparator(new MapComparator());
+const map1 = new Map([[1, "one"],[2, "two"],[3, "three"],]);
+const map2 = new Map([[1, "one"],[2, "two"],[3, "three"],]);
+const map3 = new Map([[1, "two"],[2, "three"],[3, "two"],[4, "four"],]);
+console.log("Сравнение Map1 - " + engine.deepEqual(map1, map2)); //true
+console.log("Сравнение Map2 - " + engine.deepEqual(map1, map3)); //false

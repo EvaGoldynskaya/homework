@@ -6,12 +6,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --experimental-vm-modules ../node_modules/jest/bin/jest.js",
     "test:watch": "jest --watch"
     
-  },
-  "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "jest": "^30.3.0"
   }
 }

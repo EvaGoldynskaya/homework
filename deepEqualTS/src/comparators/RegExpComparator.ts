@@ -1,4 +1,4 @@
-import { LeafComparator, ComparisonContext } from './types';
+import { LeafComparator } from './types';
 
 // Компаратор для регулярных выражений
 export class RegExpComparator implements LeafComparator<RegExp> {
@@ -6,7 +6,7 @@ export class RegExpComparator implements LeafComparator<RegExp> {
     return value instanceof RegExp;
   }
 
-  compare(a: RegExp, b: RegExp, context: ComparisonContext): boolean {
+  compare(a: RegExp, b: RegExp): boolean {
     if (!(b instanceof RegExp)) return false;
     return a.source === b.source && a.flags === b.flags;
   }

@@ -1,19 +1,17 @@
 {
   "name": "deepequalts",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "jest": {
+   "preset": "ts-jest"
   },
-  "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "jest": "^30.3.0"
+  "scripts": {
+    "start": "tsx src/index.tsx",
+    "dev": "tsx watch src/index.tsx",
+    "test": "node --experimental-vm-modules ../node_modules/jest/bin/jest.js",
+    "test:watch": "jest --watch"
   }
 }
