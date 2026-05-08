@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="app">
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="/home" data-navigate>Главная</a>
+                <a href="/cats" data-navigate>Коты</a>
+                <a href="/stats" data-navigate>Статистика</a> 
+            </div>
+            <div class="nav-settings" id="nav-settings"></div>
+        </nav>
+        <main id="app" class="content"></main>
+    </div>
+    <script type="module" src="src/app.ts"></script>
+</body>
+</html>
