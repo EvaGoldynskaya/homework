@@ -1,0 +1,22 @@
+name: Check
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+      
+      - uses: actions/setup-node@v4.3.0
+        with:
+          node-version: 24
+
+      - run: npm ci
+        working-directory: buildTool
+      
+      - run: npm run check-all
+        working-directory: buildTool

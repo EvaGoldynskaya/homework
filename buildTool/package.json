@@ -1,0 +1,38 @@
+{
+	"name": "buildtool",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"prepare": "npx husky",
+		"preview": "vite preview",
+		"lint": "eslint . --fix",
+		"format": "prettier --write .",
+		"lint:check": "eslint .",
+		"format:check": "prettier --check .",
+		"type-check": "tsc --noEmit",
+		"check-all": "npm run lint:check && npm run format:check && npm run type-check"
+	},
+	"lint-staged": {
+		"*.{ts,json,css,scss,md}": [
+			"prettier --write",
+			"eslint --fix"
+		]
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^8.59.3",
+		"@typescript-eslint/parser": "^8.59.3",
+		"eslint": "^10.3.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-prettier": "^5.5.5",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.0.4",
+		"prettier": "^3.8.3",
+		"prettier-plugin-multiline-arrays": "^4.1.8",
+		"sass": "^1.93.3",
+		"typescript": "~6.0.2",
+		"vite": "^8.0.12"
+	}
+}
