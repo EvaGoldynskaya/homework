@@ -31,7 +31,7 @@ export default [
 			...reactHooks.configs["recommended-latest"].rules,
 			...reactRefresh.configs.vite.rules,
 
-			"prettier/prettier": "error",
+			"prettier/prettier": ["error", { endOfLine: "auto" }],
 			"no-unused-vars": [
 				"error",
 				{ argsIgnorePattern: "^_", varsIgnorePattern: "^[A-Z_]" },

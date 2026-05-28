@@ -5,5 +5,6 @@
 	"useTabs": true,
 	"trailingComma": "es5",
 	"arrowParens": "avoid",
+	"endOfLine": "auto",
 	"plugins": ["prettier-plugin-multiline-arrays"]
 }

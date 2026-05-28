@@ -51,6 +51,7 @@ npm run lint:check
 ```
 
 CI -проверка форматирования кода (ошибка если есть проблемы)
+
 ```
 npm run format:check
 ```
