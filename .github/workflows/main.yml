@@ -6,17 +6,53 @@ on:
     branches: [main]
 
 jobs:
-  check:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      buildTool: ${{ steps.filter.outputs.buildTool }}
+      reactTodo: ${{ steps.filter.outputs.reactTodo }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            buildTool:
+              - 'buildTool/**'
+            reactTodo:
+              - 'reactTodo/**'
+
+  buildTool:
+    needs: changes
+    if: ${{ needs.changes.outputs.buildTool == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
-      
+
       - uses: actions/setup-node@v4.3.0
         with:
           node-version: 24
 
       - run: npm ci
         working-directory: buildTool
-      
+
       - run: npm run check-all
         working-directory: buildTool
+
+  reactTodo:
+    needs: changes
+    if: ${{ needs.changes.outputs.reactTodo == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: actions/setup-node@v4.3.0
+        with:
+          node-version: 24
+
+      - run: npm ci
+        working-directory: reactTodo
+
+      - run: npm run check-all
+        working-directory: reactTodo
