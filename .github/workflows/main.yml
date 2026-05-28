@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       buildTool: ${{ steps.filter.outputs.buildTool }}
-      todoApp: ${{ steps.filter.outputs.todoApp }}
+      reactTodo: ${{ steps.filter.outputs.reactTodo }}
     steps:
       - uses: actions/checkout@v4.2.2
 
@@ -20,8 +20,8 @@ jobs:
           filters: |
             buildTool:
               - 'buildTool/**'
-            todoApp:
-              - 'todoApp/**'
+            reactTodo:
+              - 'reactTodo/**'
 
   buildTool:
     needs: changes
@@ -40,9 +40,9 @@ jobs:
       - run: npm run check-all
         working-directory: buildTool
 
-  todoApp:
+  reactTodo:
     needs: changes
-    if: ${{ needs.changes.outputs.todoApp == 'true' }}
+    if: ${{ needs.changes.outputs.reactTodo == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
@@ -52,7 +52,7 @@ jobs:
           node-version: 24
 
       - run: npm ci
-        working-directory: todoApp
+        working-directory: reactTodo
 
       - run: npm run check-all
-        working-directory: todoApp
+        working-directory: reactTodo
