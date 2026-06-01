@@ -1,5 +1,3 @@
-import { useMemo } from "react"
-
 //Хук для управления действиями над задачами
 const useTaskActions = (tasks, setTasks) => {
 	const deleteAllTasks = () => {
@@ -39,7 +37,7 @@ const useTaskActions = (tasks, setTasks) => {
 
 		return newTask
 	}
-	
+
 	return {
 		tasks,
 		addTask,

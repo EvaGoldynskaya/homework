@@ -29,7 +29,7 @@ const useTasks = () => {
 		isValid: isTitleValid,
 	} = useTaskInput("", {
 		maxLength: 100,
-		validate: (val) =>
+		validate: val =>
 			val !== "" && val.trim() === "" ? "Task title is required" : null,
 	})
 
@@ -63,7 +63,7 @@ const useTasks = () => {
 	const normalizedSearchQuery = searchQuery.trim().toLowerCase()
 
 	const filteredTasks =
-		normalizedSearchQuery .length > 0
+		normalizedSearchQuery.length > 0
 			? tasks.filter(({ title }) =>
 					title.toLowerCase().includes(normalizedSearchQuery)
 				)

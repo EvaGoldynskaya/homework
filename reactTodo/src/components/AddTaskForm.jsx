@@ -31,7 +31,9 @@ const AddTaskForm = () => {
 				ref={newTaskInputRef}
 				error={titleError}
 			/>
-			<Button type="submit" disabled={!isTitleValid}>Add</Button>
+			<Button type="submit" disabled={!isTitleValid}>
+				Add
+			</Button>
 		</form>
 	)
 }

@@ -32,10 +32,12 @@ describe("useTaskInput", () => {
 	})
 
 	it("Валидация при вводе", () => {
-		const validator = (val) =>
-			val!=="" && val.trim() === "" ? "Field is required" : null
+		const validator = val =>
+			val !== "" && val.trim() === "" ? "Field is required" : null
 
-		const { result } = renderHook(() => useTaskInput("", { validate: validator }))
+		const { result } = renderHook(() =>
+			useTaskInput("", { validate: validator })
+		)
 
 		act(() => {
 			result.current.setValue("   ")

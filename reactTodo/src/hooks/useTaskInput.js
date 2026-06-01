@@ -18,7 +18,7 @@ const useTaskInput = (initialValue = "", validateOptions = {}) => {
 
 	//Валидация вводимого значения при необходимости + ограничение по длине ввода
 	const handleChange = useCallback(
-		(newValue) => {
+		newValue => {
 			if (newValue.length > maxLength) return
 
 			setValue(newValue)
@@ -27,7 +27,8 @@ const useTaskInput = (initialValue = "", validateOptions = {}) => {
 				const validationError = validate(newValue)
 				setError(validationError)
 			}
-		}, [validate, maxLength]
+		},
+		[validate, maxLength]
 	)
 
 	return {
