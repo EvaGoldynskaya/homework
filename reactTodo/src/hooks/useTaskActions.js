@@ -39,14 +39,9 @@ const useTaskActions = (tasks, setTasks) => {
 
 		return newTask
 	}
-
-	const filteredTasks = useMemo(() => {
-		return tasks
-	}, [tasks])
-
+	
 	return {
 		tasks,
-		filteredTasks,
 		addTask,
 		deleteTask,
 		toggleTaskComplete,

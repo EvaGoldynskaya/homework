@@ -13,6 +13,8 @@ export const TaskProvider = props => {
 
 		newTaskTitle,
 		setNewTaskTitle,
+		titleError,
+		isTitleValid,
 		searchQuery,
 		setSearchQuery,
 		newTaskInputRef,
@@ -30,6 +32,8 @@ export const TaskProvider = props => {
 
 				newTaskTitle,
 				setNewTaskTitle,
+				titleError,
+				isTitleValid,
 				searchQuery,
 				setSearchQuery,
 				newTaskInputRef,

@@ -7,23 +7,28 @@ const Field = props => {
 		value,
 		onInput,
 		ref,
+		error,
 	} = props
 
 	return (
-		<div className={`field ${className}`}>
-			<label className="field__label" htmlFor={id}>
-				{label}
-			</label>
+		<div className={`field ${className} ${error ? "field--error" : ""}`}>
 			<input
 				className="field__input"
 				id={id}
-				placeholder=" "
+				placeholder={label}
 				autoComplete="off"
 				type={type}
 				value={value}
 				onInput={onInput}
 				ref={ref}
+				aria-invalid={!!error}
+				aria-describedby={error ? `${id}-error` : undefined}
 			/>
+			{error && (
+				<span className="field__error" id={`${id}-error`}>
+					{error}
+				</span>
+			)}
 		</div>
 	)
 }
