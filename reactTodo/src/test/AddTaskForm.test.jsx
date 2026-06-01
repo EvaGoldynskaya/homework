@@ -15,6 +15,8 @@ describe("AddTaskForm", () => {
 					newTaskTitle: "Купить чай",
 					setNewTaskTitle: vi.fn(),
 					newTaskInputRef: { current: null },
+					titleError: null,
+					isTitleValid: true,
 				}}
 			>
 				<AddTaskForm />

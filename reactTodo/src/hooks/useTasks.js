@@ -30,7 +30,7 @@ const useTasks = () => {
 	} = useTaskInput("", {
 		maxLength: 100,
 		validate: (val) =>
-			val != "" && val.trim() === "" ? "Task title is required" : null,
+			val !== "" && val.trim() === "" ? "Task title is required" : null,
 	})
 
 	//Управление формой поиска задачи
