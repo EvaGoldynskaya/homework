@@ -8,6 +8,10 @@
 	background-color: var(--color-dark-2);
 	border: 1px solid var(--color-dark-2);
 	border-radius: var(--border-radius);
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease,
+		opacity 0.2s ease;
 
 	&:hover {
 		color: var(--color-dark-2);
@@ -16,5 +20,18 @@
 
 	&:active {
 		scale: 1.05;
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.6;
+		background-color: var(--color-dark-3);
+		border-color: var(--color-dark-3);
+		color: var(--color-gray-2);
+	}
+
+	&:disabled:hover {
+		background-color: var(--color-dark-3);
+		color: var(--color-gray-2);
 	}
 }

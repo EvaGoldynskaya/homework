@@ -25,7 +25,13 @@ const useTasks = () => {
 		inputRef: newTaskInputRef,
 		reset: resetNewTaskTitle,
 		focus: focusNewTaskInput,
-	} = useTaskInput("")
+		error: titleError,
+		isValid: isTitleValid,
+	} = useTaskInput("", {
+		maxLength: 100,
+		validate: val =>
+			val !== "" && val.trim() === "" ? "Task title is required" : null,
+	})
 
 	//Управление формой поиска задачи
 	const {
@@ -53,12 +59,13 @@ const useTasks = () => {
 		focusNewTaskInput()
 	}, [focusNewTaskInput])
 
-	const clearSearchQuery = searchQuery.trim().toLowerCase()
+	//Оставила заполнение filteredTasks в этом хуке т.к. он зависит от searchQuery
+	const normalizedSearchQuery = searchQuery.trim().toLowerCase()
 
 	const filteredTasks =
-		clearSearchQuery.length > 0
+		normalizedSearchQuery.length > 0
 			? tasks.filter(({ title }) =>
-					title.toLowerCase().includes(clearSearchQuery)
+					title.toLowerCase().includes(normalizedSearchQuery)
 				)
 			: null
 
@@ -71,6 +78,8 @@ const useTasks = () => {
 
 		newTaskTitle,
 		setNewTaskTitle,
+		titleError,
+		isTitleValid,
 		searchQuery,
 		setSearchQuery,
 		newTaskInputRef,

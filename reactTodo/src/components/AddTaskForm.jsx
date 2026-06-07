@@ -4,12 +4,20 @@ import { useContext } from "react"
 import { TaskContext } from "../context/TaskContext"
 
 const AddTaskForm = () => {
-	const { addTask, newTaskTitle, setNewTaskTitle, newTaskInputRef } =
-		useContext(TaskContext)
+	const {
+		addTask,
+		newTaskTitle,
+		setNewTaskTitle,
+		newTaskInputRef,
+		titleError,
+		isTitleValid,
+	} = useContext(TaskContext)
 
 	const onSubmit = event => {
 		event.preventDefault()
-		addTask()
+		if (isTitleValid) {
+			addTask()
+		}
 	}
 
 	return (
@@ -21,8 +29,11 @@ const AddTaskForm = () => {
 				value={newTaskTitle}
 				onInput={e => setNewTaskTitle(e.target.value)}
 				ref={newTaskInputRef}
+				error={titleError}
 			/>
-			<Button type="submit">Add</Button>
+			<Button type="submit" disabled={!isTitleValid}>
+				Add
+			</Button>
 		</form>
 	)
 }
