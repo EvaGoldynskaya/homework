@@ -9,8 +9,9 @@ export const CategoryFilter = () => {
   const selected = useAppSelector((state) => state.ui.selectedCategory);
 
   return (
-    <div style={{ marginBottom: 20 }}>
+    <div className="list" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(140px, max-content))', marginBottom: 16 }}>
       <button
+        className="button"
         onClick={() => dispatch(setCategory(null))}
         style={{ fontWeight: selected === null ? 'bold' : 'normal' }}
       >
@@ -19,6 +20,7 @@ export const CategoryFilter = () => {
       {CATEGORIES.map((cat) => (
         <button
           key={cat}
+          className="button"
           onClick={() => dispatch(setCategory(cat))}
           style={{ fontWeight: selected === cat ? 'bold' : 'normal' }}
         >

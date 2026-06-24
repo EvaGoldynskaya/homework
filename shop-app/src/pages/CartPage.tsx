@@ -10,22 +10,26 @@ export const CartPage = () => {
   const total = items.reduce((sum: number, item: { price: number; quantity: number }) => sum + item.price * item.quantity, 0);
 
   if (items.length === 0) {
-    return <p>Корзина пуста</p>;
+    return <p className="text-muted">Корзина пуста</p>;
   }
 
   return (
-    <div>
-      <h1>Корзина</h1>
-      {items.map((item) => (
-        <div key={item.id} style={{ marginBottom: 10 }}>
-          <h3>{item.title}</h3>
-          <p>{item.quantity} × {item.price} $</p>
-          <button onClick={() => dispatch(removeFromCart(item.id))}>
-            Удалить
-          </button>
-        </div>
-      ))}
-      <h2>Итого: {total.toFixed(2)} $</h2>
+    <div className="page">
+      <h1 className="title">Корзина</h1>
+      <div className="list">
+        {items.map((item) => (
+          <div key={item.id} className="panel list-item">
+            <div>
+              <h3 className="card__title">{item.title}</h3>
+              <p className="text-muted">{item.quantity} × {item.price} $</p>
+            </div>
+            <button className="button" onClick={() => dispatch(removeFromCart(item.id))}>
+              Удалить
+            </button>
+          </div>
+        ))}
+      </div>
+      <h2 className="title">Итого: {total.toFixed(2)} $</h2>
     </div>
   );
 };

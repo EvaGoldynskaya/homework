@@ -16,14 +16,13 @@ export const ProductCard = ({ product }: Props) => {
   const dispatch = useAppDispatch();
 
   return (
-    <div style={{ border: '1px solid #ddd', padding: 10, marginBottom: 10 }}>
-      <img src={product.image} width={100} alt={product.title} />
-      {/* Ссылка ведёт на параметризованный маршрут */}
-      <h3>
+    <div className="card">
+      <img className="image-fluid" src={product.image} alt={product.title} />
+      <h3 className="card__title">
         <Link to={`/products/${product.id}`}>{product.title}</Link>
       </h3>
-      <p>{product.price} $</p>
-      <button onClick={() => dispatch(addToCart(product))}>
+      <p className="card__price">{product.price} $</p>
+      <button className="button" onClick={() => dispatch(addToCart(product))}>
         В корзину
       </button>
     </div>

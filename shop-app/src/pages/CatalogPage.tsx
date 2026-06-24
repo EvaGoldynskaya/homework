@@ -28,18 +28,20 @@ export default function CatalogPage() {
   if (error) return <p>Ошибка: {error}</p>;
 
   return (
-    <div>
-      <h1>Каталог ({filtered.length})</h1>
+    <div className="page">
+      <h1 className="title">Каталог ({filtered.length})</h1>
       <input
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Поиск товара..."
-        style={{ padding: 8, width: 300, marginBottom: 20 }}
+        className="input"
       />
       <CategoryFilter />
-      {filtered.map((product: any) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+      <div className="list">
+        {filtered.map((product: any) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 }

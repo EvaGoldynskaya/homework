@@ -18,12 +18,12 @@ export default function ProductPage() {
   if (!product) return null;
 
   return (
-    <div>
-      <img src={product.image} width={200} alt={product.title} />
-      <h1>{product.title}</h1>
-      <p style={{ fontSize: 20, fontWeight: 'bold' }}>{product.price} $</p>
-      <p>{product.description}</p>
-      <button onClick={() => dispatch(addToCart(product))}>
+    <div className="panel">
+      <img className="image-fluid" src={product.image} alt={product.title} />
+      <h1 className="title">{product.title}</h1>
+      <p className="card__price">{product.price} $</p>
+      <p className="text-muted">{product.description}</p>
+      <button className="button" onClick={() => dispatch(addToCart(product))}>
         Добавить в корзину
       </button>
     </div>

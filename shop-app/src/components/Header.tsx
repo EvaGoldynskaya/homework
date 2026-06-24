@@ -3,9 +3,18 @@ import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
-    <header style={{ display: 'flex', gap: 20, padding: 15, background: '#eee' }}>
-      <Link to="/">Каталог</Link>
-      <Link to="/cart">Корзина</Link>
+    <header className="header">
+      <Link to="/" className="title">
+        Shop App
+      </Link>
+      <nav className="header__nav">
+        <Link to="/" className="header__link">
+          Каталог
+        </Link>
+        <Link to="/cart" className="header__link">
+          Корзина
+        </Link>
+      </nav>
     </header>
   );
 };

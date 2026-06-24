@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { CartPage } from './pages/CartPage';
+import './styles.scss';
 
 // Ленивая загрузка: эти страницы подгрузятся,
 // только когда пользователь на них перейдёт.
@@ -12,7 +13,7 @@ const ProductPage = lazy(() => import('./pages/ProductPage'));
 
 export default function App() {
   return (
-    <div style={{ padding: 20 }}>
+    <div className="app-shell">
       <Header />
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
