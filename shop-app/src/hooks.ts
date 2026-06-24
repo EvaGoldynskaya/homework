@@ -1,6 +1,6 @@
 // src/app/hooks.ts
 import { useDispatch, useSelector } from 'react-redux';
-import type { RootState, AppDispatch } from './store';
+import type { RootState, AppDispatch } from './store/store';
 
 // Используйте эти хуки вместо обычных useSelector/useDispatch —
 // они уже знают типы вашего store

@@ -17,7 +17,7 @@ describe('CartPage', () => {
       title: 'Test Book',
       price: 10,
       category: 'electronics',
-      image: 'https://unsplash.com/photos/book-near-eyeglasses-and-cappuccino-nGrfKmtwv24',
+      image: 'https://unsplash.com/photos/black-android-smartphone-beside-black-ceramic-mug-on-brown-wooden-table-ppg7GuXOUYc',
     };
 
     const { store } = renderWithProviders(<CartPage />);

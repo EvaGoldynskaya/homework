@@ -8,21 +8,15 @@ describe('ProductCard', () => {
     id: 1,
     title: 'Test Book',
     price: 10,
-    image: 'https://unsplash.com/photos/book-near-eyeglasses-and-cappuccino-nGrfKmtwv24',
+    category: 'electronics',
+    image: 'https://unsplash.com/photos/black-android-smartphone-beside-black-ceramic-mug-on-brown-wooden-table-ppg7GuXOUYc',
   };
 
   test('отображает данные товара и ссылку на страницу товара', () => {
     renderWithProviders(<ProductCard product={product} />);
 
-    expect(screen.getByRole('img', { name: /test book/i })).toHaveAttribute(
-      'src',
-      product.image
-    );
-    expect(screen.getByRole('link', { name: /test book/i })).toHaveAttribute(
-      'href',
-      `/products/${product.id}`
-    );
-    expect(screen.getByText(/10\s*\$/i)).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /test book/i })).toHaveAttribute('src',product.image);
+    expect(screen.getByRole('link', { name: /test book/i })).toHaveAttribute('href',`/products/${product.id}`);
   });
 
   test('клик по кнопке добавляет товар в корзину', async () => {

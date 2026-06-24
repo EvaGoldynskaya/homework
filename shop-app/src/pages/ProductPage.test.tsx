@@ -15,7 +15,7 @@ function renderProductPage(route = '/products/1') {
 
 describe('ProductPage', () => {
   test('показывает состояние загрузки перед ответом сервера', () => {
-    global.fetch = vi.fn(() => new Promise(() => {}));
+    globalThis.fetch = vi.fn(() => new Promise<Response>(() => {}));
 
     renderProductPage();
 
@@ -23,7 +23,7 @@ describe('ProductPage', () => {
   });
 
   test('показывает ошибку, если сервер вернул не-OK', async () => {
-    global.fetch = vi.fn(() =>
+    globalThis.fetch = vi.fn(() =>
       Promise.resolve({ ok: false, status: 500 } as Response)
     );
 
@@ -39,10 +39,10 @@ describe('ProductPage', () => {
       title: 'Test Book',
       price: 10,
       category: 'electronics',
-      image: 'https://unsplash.com/photos/book-near-eyeglasses-and-cappuccino-nGrfKmtwv24',
+      image: 'https://unsplash.com/photos/black-android-smartphone-beside-black-ceramic-mug-on-brown-wooden-table-ppg7GuXOUYc',
     };
 
-    global.fetch = vi.fn(() =>
+    globalThis.fetch = vi.fn(() =>
       Promise.resolve({
         ok: true,
         json: () => Promise.resolve(product),
