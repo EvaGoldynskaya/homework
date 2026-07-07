@@ -17,18 +17,9 @@ export default {
     fieldValue: {
       required: true,
       type: String
-    },
-    canChange: {
-      default: false,
-      type: Boolean
-    },
-  },
-  setup(props, { emit }) {
-    const emitOnChange = (newVal) => {emit('onChange', newVal)}
-    return {
-      emitOnChange
     }
-  }
+  },
+  setup(props) {}
 }
 </script>
 
