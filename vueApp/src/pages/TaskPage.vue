@@ -6,7 +6,7 @@
       <article v-if="task" class="info-card">
         <div class="task-header">
           <h1>{{ task.title }}</h1>
-          <span class="status-badge">{{ task.status ? 'Выполнено' : 'В процессе' }}</span>
+          <span class="status-badge">{{ task.status ? 'Done' : 'In Progress' }}</span>
         </div>
 
         <p class="task-description">
@@ -15,22 +15,22 @@
 
         <div class="task-meta">
           <TaskField
-            fieldLabel="Приоритет"
+            fieldLabel="Priority"
             :fieldValue="priorityLabel"
           />
           <TaskField
-            fieldLabel="Срок"
+            fieldLabel="Due Date"
             :fieldValue="formatDate(task.dueDate)"
           />
         </div>
 
         <div class="task-meta">
           <TaskField
-            fieldLabel="Создана"
+            fieldLabel="Created date"
             :fieldValue="formatDate(task.createdAt)"
           />
           <TaskField
-            fieldLabel="Обновлена"
+            fieldLabel="Updated date"
             :fieldValue="formatDate(task.updatedAt)"
           />
         </div>
