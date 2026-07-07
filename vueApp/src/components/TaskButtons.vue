@@ -1,13 +1,13 @@
 <template>
   <div class="btndiv">
-      <input class="checkbox" type="checkbox" v-model="model.status" :disabled="model.status" />
+      <input class="checkbox" type="checkbox" @change="emitOnDone" :disabled="model.status" />
       <button @click="emitOnRemove" >❌</button>
   </div>
 </template>
 
 <script>
 export default {
-  emits: ['onRemove'],
+  emits: ['onRemove', 'onDone'],
   props: {
     model: {
       required: true
@@ -15,9 +15,13 @@ export default {
   },
 
   setup(props, { emit }) {
-    const emitOnRemove = () => {emit('onRemove')}
+    const emitOnRemove = () => { emit('onRemove') }
+    const emitOnDone = () => { emit('onDone') }
+    // expose model so template bindings reference the reactive prop
     return {
-      emitOnRemove
+      emitOnRemove,
+      emitOnDone,
+      model: props.model
     }
   }
 }

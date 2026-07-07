@@ -21,20 +21,3 @@ export default {
   emits: ['update:searchQuery']
 }
 </script>
-
-<style scoped>
-.info-card {
-  margin: 16px 0;
-  padding: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  background: #f9fafb;
-}
-
-.info-card h1 {
-  margin-bottom: 5px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #111827;
-}
-</style>

@@ -27,7 +27,11 @@ export function useTaskList() {
     id: 0,
     title: 'Полить цветы',
     description: 'Полить цветы в горшках на балконе и в комнате',
-    status: false
+    status: false,
+    priority: 'High',
+    dueDate: "2026-04-20T00:00:00.000Z",
+    createdAt: "2026-04-15T10:00:00.000Z",
+    updatedAt: "2026-04-15T10:00:00.000Z"
   }])
 
   const searchQuery = ref('')
@@ -45,14 +49,31 @@ export function useTaskList() {
         id: crypto.randomUUID(),
         title: form.title,
         description: form.description,
-        status: false
+        priority: form.priority,
+        status: false,
+        dueDate: form.dueDate,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
       }
     ]
+  }
+
+  //Выполнение задачи
+  const setDoneTask = (id) => {
+    taskList.value = taskList.value.map(x => {
+      if(x.id === id)
+        x.status = true
+      return x
+    })
   }
 
   //Удаение задачи из taskList
   const removeTask = (id) => {
     taskList.value = taskList.value.filter(x => x.id !== id)
+  }
+
+  const getTaskById = (id) => {
+    return taskList.value.find((x) => String(x.id) === String(id)) || null
   }
 
   //Вычисление кол-ва задач и кол-ва выполненных задач
@@ -77,6 +98,8 @@ export function useTaskList() {
     searchQuery,
     addTask,
     removeTask,
+    setDoneTask,
+    getTaskById,
     completedCount,
     totalCount
   }
