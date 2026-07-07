@@ -22,7 +22,8 @@ export default {
   emits: [ 'onRemove' , 'onDone'],
   props: {
     model: {
-      required: true
+      required: true,
+      type: Object
     }
   },
   setup(props, { emit }) {

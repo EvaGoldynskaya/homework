@@ -2,6 +2,7 @@
   <div style="padding: 20px">
     <nav style="display: flex; gap: 20px; margin-bottom: 20px">
       <RouterLink to="/tasks"></RouterLink>
+      <RouterLink to="/about"></RouterLink>
     </nav>
     <RouterView />
   </div>

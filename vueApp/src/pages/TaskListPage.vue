@@ -1,11 +1,14 @@
 <template>
   <main class="task-list-page">
+    <RouterLink :to="{ path: '/about' }" class="task-title">
+      About App
+    </RouterLink>
     <div class="task-page-layout">
-      <div class="left-column">
+      <div class="column">
         <TaskInput @onAddTask="addTask"></TaskInput>
       </div>
 
-      <div class="right-column">
+      <div class="column">
         <InfoCard :completed-count="completedCount" :total-count="totalCount" v-model:searchQuery="searchQuery"/>
         <ul class="list task-list">
           <li v-for="item in filteredTasks" :key="item.id">
@@ -57,14 +60,14 @@ export default {
   display: grid;
   grid-template-columns: minmax(240px, 320px) 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
 }
 
-.left-column,
-.right-column {
+.column {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-height: 100%;
 }
 
 .task-list {

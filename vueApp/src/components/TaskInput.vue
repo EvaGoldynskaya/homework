@@ -47,6 +47,6 @@ export default {
 
 <style scoped>
 .task-input {
-  margin: 10px 0;
+  margin: 16px 0;
 }
 </style>
