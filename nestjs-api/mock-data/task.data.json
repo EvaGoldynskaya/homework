@@ -1,0 +1,306 @@
+[
+  {
+    "id": "t1a8f3b9-1d2e-4f8a-9b3c-1e2f3a4b5c6d",
+    "name": "Complete project documentation",
+    "userId": "a8f3b9c1-4d2e-4f8a-9b3c-1e2f3a4b5c6d",
+    "description": "Write technical documentation for the new API endpoints including authentication flow",
+    "deadline": "2026-08-15",
+    "status": "INPROG"
+  },
+  {
+    "id": "t2b7c2d4-2f3a-4b8c-9d2e-3f4a5b6c7d8e",
+    "name": "Code review session",
+    "userId": "a8f3b9c1-4d2e-4f8a-9b3c-1e2f3a4b5c6d",
+    "description": "Review pull requests from team members and provide feedback",
+    "deadline": "2026-07-25",
+    "status": "DONE"
+  },
+  {
+    "id": "t3c6d1e2-3a4b-4c9d-8e1f-2a3b4c5d6e7f",
+    "name": "Database migration",
+    "userId": "a8f3b9c1-4d2e-4f8a-9b3c-1e2f3a4b5c6d",
+    "description": "Migrate user data to new schema and test data integrity",
+    "deadline": "2026-08-10",
+    "status": "INPROG"
+  },
+  {
+    "id": "t4d5e0f1-4b3c-4d8e-9f1a-3b4c5d6e7f8a",
+    "name": "Design system update",
+    "userId": "b7c2d4e1-5f3a-4b8c-9d2e-3f4a5b6c7d8e",
+    "description": "Update UI components to match new design system guidelines",
+    "deadline": "2026-08-20",
+    "status": "INPROG"
+  },
+  {
+    "id": "t5e4f9a0-5c2d-4e7f-8a1b-4c5d6e7f8a9b",
+    "name": "Write unit tests",
+    "userId": "b7c2d4e1-5f3a-4b8c-9d2e-3f4a5b6c7d8e",
+    "description": "Write unit tests for user authentication module",
+    "deadline": "2026-07-30",
+    "status": "DONE"
+  },
+  {
+    "id": "t6f3e8a9-6d1c-4f6e-7b2a-5d6e7f8a9b0c",
+    "name": "Performance optimization",
+    "userId": "b7c2d4e1-5f3a-4b8c-9d2e-3f4a5b6c7d8e",
+    "description": "Optimize database queries and implement caching strategy",
+    "deadline": "2026-09-01",
+    "status": "INPROG"
+  },
+  {
+    "id": "t7a2f7b8-7e1d-4a5f-6c3b-6e7f8a9b0c1d",
+    "name": "Fix login bug",
+    "userId": "b7c2d4e1-5f3a-4b8c-9d2e-3f4a5b6c7d8e",
+    "description": "Fix session timeout bug affecting user login experience",
+    "deadline": "2026-07-22",
+    "status": "DONE"
+  },
+  {
+    "id": "t8b1e6c7-8f2a-4b8e-5d4c-7f8a9b0c1d2e",
+    "name": "API documentation",
+    "userId": "c6d1e2f3-6a4b-4c9d-8e1f-2a3b4c5d6e7f",
+    "description": "Create Swagger documentation for all REST endpoints",
+    "deadline": "2026-08-25",
+    "status": "INPROG"
+  },
+  {
+    "id": "t9c0d5e6-9a3b-4c9d-4e5f-8a9b0c1d2e3f",
+    "name": "Deploy to staging",
+    "userId": "c6d1e2f3-6a4b-4c9d-8e1f-2a3b4c5d6e7f",
+    "description": "Deploy latest version to staging environment and run integration tests",
+    "deadline": "2026-08-05",
+    "status": "DONE"
+  },
+  {
+    "id": "t10d9e4f5-0b2c-4d8e-3f6a-9b0c1d2e3f4a",
+    "name": "Implement email notifications",
+    "userId": "c6d1e2f3-6a4b-4c9d-8e1f-2a3b4c5d6e7f",
+    "description": "Add email notification system for task assignments and deadlines",
+    "deadline": "2026-09-10",
+    "status": "INPROG"
+  },
+  {
+    "id": "t11e8f3a4-1c1d-4e7f-2a6b-0c1d2e3f4a5b",
+    "name": "Mobile responsive design",
+    "userId": "d5e0f1a2-7b3c-4d8e-9f1a-3b4c5d6e7f8a",
+    "description": "Make dashboard fully responsive for mobile devices",
+    "deadline": "2026-08-18",
+    "status": "INPROG"
+  },
+  {
+    "id": "t12f7e2a3-2d0c-4f8a-1b5c-1d2e3f4a5b6c",
+    "name": "Setup monitoring",
+    "userId": "d5e0f1a2-7b3c-4d8e-9f1a-3b4c5d6e7f8a",
+    "description": "Configure application monitoring with Sentry and logging",
+    "deadline": "2026-08-12",
+    "status": "DONE"
+  },
+  {
+    "id": "t13a6f1b2-3e3d-4a9b-0c4d-2e3f4a5b6c7d",
+    "name": "User feedback survey",
+    "userId": "e4f9a0b1-8c2d-4e7f-8a1b-4c5d6e7f8a9b",
+    "description": "Create and send user satisfaction survey to beta testers",
+    "deadline": "2026-08-02",
+    "status": "DONE"
+  },
+  {
+    "id": "t14b5e0c1-4f2a-4b8c-9d3e-3f4a5b6c7d8e",
+    "name": "Implement search feature",
+    "userId": "e4f9a0b1-8c2d-4e7f-8a1b-4c5d6e7f8a9b",
+    "description": "Add full-text search for tasks and users with filtering",
+    "deadline": "2026-09-05",
+    "status": "INPROG"
+  },
+  {
+    "id": "t15c4d9a2-5b1f-4c7d-8e2f-4a5b6c7d8e9f",
+    "name": "Security audit",
+    "userId": "e4f9a0b1-8c2d-4e7f-8a1b-4c5d6e7f8a9b",
+    "description": "Perform security audit and fix vulnerabilities in authentication",
+    "deadline": "2026-08-28",
+    "status": "INPROG"
+  },
+  {
+    "id": "t16d5e0f1-6b3c-4d8e-9f1a-3b4c5d6e7f8a",
+    "name": "Data backup strategy",
+    "userId": "e4f9a0b1-8c2d-4e7f-8a1b-4c5d6e7f8a9b",
+    "description": "Implement automated database backup and recovery strategy",
+    "deadline": "2026-08-20",
+    "status": "DONE"
+  },
+  {
+    "id": "t17e4f9a0-7c2d-4e7f-8a1b-4c5d6e7f8a9b",
+    "name": "Update dependencies",
+    "userId": "f3e8a9b2-9d1c-4f6e-7b2a-5d6e7f8a9b0c",
+    "description": "Update all npm packages to latest stable versions",
+    "deadline": "2026-07-28",
+    "status": "DONE"
+  },
+  {
+    "id": "t18f3e8a9-8d1c-4f6e-7b2a-5d6e7f8a9b0c",
+    "name": "Add dark mode",
+    "userId": "f3e8a9b2-9d1c-4f6e-7b2a-5d6e7f8a9b0c",
+    "description": "Implement dark mode support across entire application",
+    "deadline": "2026-09-15",
+    "status": "INPROG"
+  },
+  {
+    "id": "t19a2f7b8-9e1d-4a5f-6c3b-6e7f8a9b0c1d",
+    "name": "Accessibility improvements",
+    "userId": "f3e8a9b2-9d1c-4f6e-7b2a-5d6e7f8a9b0c",
+    "description": "Improve WCAG compliance and add ARIA labels",
+    "deadline": "2026-09-20",
+    "status": "INPROG"
+  },
+  {
+    "id": "t20b1e6c7-0f2a-4b8e-5d4c-7f8a9b0c1d2e",
+    "name": "User onboarding flow",
+    "userId": "a2f7b8c3-0e1d-4a5f-6c3b-6e7f8a9b0c1d",
+    "description": "Design and implement new user onboarding tutorial",
+    "deadline": "2026-08-30",
+    "status": "INPROG"
+  },
+  {
+    "id": "t21c0d5e6-1a3b-4c9d-4e5f-8a9b0c1d2e3f",
+    "name": "Integration with Slack",
+    "userId": "a2f7b8c3-0e1d-4a5f-6c3b-6e7f8a9b0c1d",
+    "description": "Add Slack integration for task notifications and updates",
+    "deadline": "2026-09-25",
+    "status": "INPROG"
+  },
+  {
+    "id": "t22d9e4f5-2b2c-4d8e-3f6a-9b0c1d2e3f4a",
+    "name": "Fix navbar styling",
+    "userId": "b1e6c7d4-1f2a-4b8e-5d4c-7f8a9b0c1d2e",
+    "description": "Fix responsive issues in navbar on tablet devices",
+    "deadline": "2026-07-24",
+    "status": "DONE"
+  },
+  {
+    "id": "t23e8f3a4-3c1d-4e7f-2a6b-0c1d2e3f4a5b",
+    "name": "Add export feature",
+    "userId": "b1e6c7d4-1f2a-4b8e-5d4c-7f8a9b0c1d2e",
+    "description": "Add CSV and PDF export for task lists and reports",
+    "deadline": "2026-09-08",
+    "status": "INPROG"
+  },
+  {
+    "id": "t24f7e2a3-4d0c-4f8a-1b5c-1d2e3f4a5b6c",
+    "name": "Rate limiting",
+    "userId": "c0d5e6f7-2a3b-4c9d-4e5f-8a9b0c1d2e3f",
+    "description": "Implement rate limiting for API endpoints to prevent abuse",
+    "deadline": "2026-08-08",
+    "status": "DONE"
+  },
+  {
+    "id": "t25a6f1b2-5e3d-4a9b-0c4d-2e3f4a5b6c7d",
+    "name": "Update readme",
+    "userId": "c0d5e6f7-2a3b-4c9d-4e5f-8a9b0c1d2e3f",
+    "description": "Update project documentation with installation and deployment steps",
+    "deadline": "2026-07-26",
+    "status": "DONE"
+  },
+  {
+    "id": "t26b5e0c1-6f2a-4b8c-9d3e-3f4a5b6c7d8e",
+    "name": "Dashboard analytics",
+    "userId": "d9e4f5a6-3b2c-4d8e-3f6a-9b0c1d2e3f4a",
+    "description": "Add analytics charts to dashboard showing task progress",
+    "deadline": "2026-09-18",
+    "status": "INPROG"
+  },
+  {
+    "id": "t27c4d9a2-7b1f-4c7d-8e2f-4a5b6c7d8e9f",
+    "name": "Two-factor authentication",
+    "userId": "d9e4f5a6-3b2c-4d8e-3f6a-9b0c1d2e3f4a",
+    "description": "Implement 2FA using authenticator apps for enhanced security",
+    "deadline": "2026-10-01",
+    "status": "INPROG"
+  },
+  {
+    "id": "t28e8f3a4-8c1d-4e7f-2a6b-0c1d2e3f4a5b",
+    "name": "Fix mobile menu",
+    "userId": "e8f3a4b5-4c1d-4e7f-2a6b-0c1d2e3f4a5b",
+    "description": "Fix hamburger menu not closing on mobile devices",
+    "deadline": "2026-07-20",
+    "status": "DONE"
+  },
+  {
+    "id": "t29f7e2a3-9d0c-4f8a-1b5c-1d2e3f4a5b6c",
+    "name": "Implement comments",
+    "userId": "e8f3a4b5-4c1d-4e7f-2a6b-0c1d2e3f4a5b",
+    "description": "Add commenting system for tasks and user collaboration",
+    "deadline": "2026-09-12",
+    "status": "INPROG"
+  },
+  {
+    "id": "t30a6f1b2-0e3d-4a9b-0c4d-2e3f4a5b6c7d",
+    "name": "Cron jobs setup",
+    "userId": "f7e2a3b6-5d0c-4f8a-1b5c-1d2e3f4a5b6c",
+    "description": "Setup cron jobs for automated reports and data cleanup",
+    "deadline": "2026-08-25",
+    "status": "INPROG"
+  },
+  {
+    "id": "t31b5e0c1-1f2a-4b8c-9d3e-3f4a5b6c7d8e",
+    "name": "Error tracking",
+    "userId": "f7e2a3b6-5d0c-4f8a-1b5c-1d2e3f4a5b6c",
+    "description": "Setup error tracking with Sentry and create error dashboard",
+    "deadline": "2026-08-02",
+    "status": "DONE"
+  },
+  {
+    "id": "t32c4d9a2-2b1f-4c7d-8e2f-4a5b6c7d8e9f",
+    "name": "Update UI components",
+    "userId": "a6f1b2c7-6e3d-4a9b-0c4d-2e3f4a5b6c7d",
+    "description": "Refactor UI components using new design language",
+    "deadline": "2026-09-22",
+    "status": "INPROG"
+  },
+  {
+    "id": "t33d5e0f1-3b3c-4d8e-9f1a-3b4c5d6e7f8a",
+    "name": "API versioning",
+    "userId": "a6f1b2c7-6e3d-4a9b-0c4d-2e3f4a5b6c7d",
+    "description": "Implement API versioning to support backward compatibility",
+    "deadline": "2026-08-15",
+    "status": "DONE"
+  },
+  {
+    "id": "t34e4f9a0-4c2d-4e7f-8a1b-4c5d6e7f8a9b",
+    "name": "Data validation",
+    "userId": "b5e0c1d8-7f2a-4b8c-9d3e-3f4a5b6c7d8e",
+    "description": "Add comprehensive data validation for all user inputs",
+    "deadline": "2026-08-20",
+    "status": "INPROG"
+  },
+  {
+    "id": "t35f3e8a9-5d1c-4f6e-7b2a-5d6e7f8a9b0c",
+    "name": "Implement tagging system",
+    "userId": "b5e0c1d8-7f2a-4b8c-9d3e-3f4a5b6c7d8e",
+    "description": "Add tag system for tasks to improve organization",
+    "deadline": "2026-10-05",
+    "status": "INPROG"
+  },
+  {
+    "id": "t36a2f7b8-6e1d-4a5f-6c3b-6e7f8a9b0c1d",
+    "name": "Logging system",
+    "userId": "c4d9a2e3-8b1f-4c7d-8e2f-4a5b6c7d8e9f",
+    "description": "Setup centralized logging system with ELK stack",
+    "deadline": "2026-09-30",
+    "status": "INPROG"
+  },
+  {
+    "id": "t37b1e6c7-7f2a-4b8e-5d4c-7f8a9b0c1d2e",
+    "name": "Fix image upload",
+    "userId": "c4d9a2e3-8b1f-4c7d-8e2f-4a5b6c7d8e9f",
+    "description": "Fix image upload errors and add compression",
+    "deadline": "2026-08-01",
+    "status": "DONE"
+  },
+  {
+    "id": "t38c0d5e6-8a3b-4c9d-4e5f-8a9b0c1d2e3f",
+    "name": "Social media integration",
+    "userId": "c4d9a2e3-8b1f-4c7d-8e2f-4a5b6c7d8e9f",
+    "description": "Add social media share buttons and login options",
+    "deadline": "2026-10-10",
+    "status": "INPROG"
+  }
+]
