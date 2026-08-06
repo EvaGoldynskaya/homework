@@ -1,75 +1,113 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import path from 'path';
-import fs from 'fs';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from '../prisma.service';
 import { CreateUserDto, UpdateUserDto } from './dto/user.dto';
 
-export interface User{
-  id: string
-  name: string
-  birthdate: string
-  email: string
-}
+export type UserRecord = { id: string; name: string; birthdate: string; email: string };
+
+export type UserListResult = {
+  data: UserRecord[];
+  meta: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+    hasNextPage: boolean;
+    hasPreviousPage: boolean;
+  };
+};
 
 @Injectable()
 export class UserService {
+  constructor(private readonly prisma: PrismaService) {}
 
-  private users: User[] = []
-  private filePath: string;
+  async findAll(name?: string, page?: number, limit?: number): Promise<UserRecord[] | UserListResult> {
+    const where: Prisma.UserWhereInput | undefined = name
+    ? {
+        name: {
+          contains: name,
+          mode: Prisma.QueryMode.insensitive,
+        },
+      }
+    : undefined;
 
-  constructor() {
-    this.filePath = path.join(__dirname, '../../mock-data/user.data.json');
-    console.log('filePath', this.filePath)
-    this.load()
-  }
-
-  private load(): void {
-    try {
-      const data = fs.readFileSync(this.filePath, 'utf-8');
-      this.users = JSON.parse(data);
-    } catch (error) {
-      console.log('File not found');
-      this.users = [];
+    if (page === undefined && limit === undefined) {
+      return this.prisma.user.findMany({ where });
     }
+
+    const safePage = Math.max(1, page ?? 1);
+    const safeLimit = Math.min(100, Math.max(1, limit ?? 10));
+    const skip = (safePage - 1) * safeLimit;
+
+    const query = [
+      this.prisma.user.findMany({
+        where,
+        skip,
+        take: safeLimit,
+      }),
+      this.prisma.user.count({ where }),
+    ];
+
+    const [data, total] = (typeof this.prisma.$transaction === 'function'
+      ? await this.prisma.$transaction(query)
+      : await Promise.all(query)) as [UserRecord[], number];
+
+    const totalItems = Number(total);
+    const totalPages = Math.ceil(totalItems / safeLimit);
+
+    return {
+      data,
+      meta: {
+        total: totalItems,
+        page: safePage,
+        limit: safeLimit,
+        totalPages,
+        hasNextPage: safePage < totalPages,
+        hasPreviousPage: safePage > 1,
+      },
+    } satisfies UserListResult;
   }
 
-  private save(): void {
-    fs.writeFileSync(this.filePath, JSON.stringify(this.users, null, 2), 'utf-8');
-  }
+  async findById(id: string) {
+    const user = await this.prisma.user.findUnique({ where: { id } });
 
-  findAll(name:string = '') {
-    return this.users.filter(user =>
-    user.name.toLowerCase().includes(name.toLowerCase()))
-  }
-
-  findById(id:string) {
-    const user = this.users.find(user => user.id === id)
     if (!user) {
-      throw new NotFoundException('User not found')
+      throw new NotFoundException('User not found');
     }
-    return user
+
+    return user;
   }
 
-  create(dto:CreateUserDto){
-    const newUser:User = { id: globalThis.crypto.randomUUID(), ...dto }
-    this.users.push(newUser)
-    this.save()
-    return newUser
+  async create(dto: CreateUserDto) {
+    return this.prisma.user.create({ data: dto });
   }
 
-  update(id:string, dto:UpdateUserDto){
-    const index = this.users.findIndex(user => user.id === id);
-    if (index === -1) return false;
+  async update(id: string, dto: UpdateUserDto) {
+    try {
+      return await this.prisma.user.update({
+        where: { id },
+        data: dto,
+      });
+    } catch (error) {
+      const prismaError = error as { code?: string };
+      if (prismaError.code === 'P2025') {
+        return false;
+      }
 
-    this.users[index] = { ...this.users[index], ...dto };
-    this.save()
-    return this.users[index]
+      throw error;
+    }
   }
 
-  delete(id:string) {
-    const index = this.users.findIndex(user => user.id === id);
-    if (index === -1) return false;
-    const [deleted] = this.users.splice(index, 1)
-    this.save()
-    return deleted
+  async delete(id: string) {
+    try {
+      return await this.prisma.user.delete({ where: { id } });
+    } catch (error) {
+      const prismaError = error as { code?: string };
+      if (prismaError.code === 'P2025') {
+        return false;
+      }
+
+      throw error;
+    }
   }
 }

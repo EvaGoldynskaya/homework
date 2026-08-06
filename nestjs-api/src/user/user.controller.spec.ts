@@ -38,9 +38,9 @@ describe('UserController', () => {
     const expectedResult = [{ id: '1', name: 'John Doe' }];
     mockUserService.findAll.mockReturnValue(expectedResult);
 
-    const result = controller.getUsers('John');
+    const result = controller.getUsers('John', 1, 10);
 
-    expect(mockUserService.findAll).toHaveBeenCalledWith('John');
+    expect(mockUserService.findAll).toHaveBeenCalledWith('John', 1, 10);
     expect(result).toEqual(expectedResult);
   });
 

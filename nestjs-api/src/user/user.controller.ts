@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Delete, Query } from '@nestjs/common';
+import { Body, Controller, DefaultValuePipe, Delete, Get, Param, ParseIntPipe, Post, Put, Query } from '@nestjs/common';
 import { CreateUserDto, UpdateUserDto } from './dto/user.dto';
 import { UserService } from './user.service';
 
@@ -7,8 +7,12 @@ export class UserController {
   constructor(private readonly service: UserService) {}
 
   @Get()
-  getUsers(@Query('name') name:string) {
-    return this.service.findAll(name);
+  getUsers(
+    @Query('name') name?: string,
+    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page?: number,
+    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit?: number,
+  ) {
+    return this.service.findAll(name, page, limit);
   }
 
   @Get(':id')

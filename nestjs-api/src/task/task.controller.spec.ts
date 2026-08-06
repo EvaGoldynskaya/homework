@@ -35,12 +35,22 @@ describe('TaskController', () => {
   });
 
   it('Все задачи', () => {
-    const expectedResult = [{ id: '1', name: 'Task 1' }];
+    const expectedResult = {
+      data: [{ id: '1', name: 'Task 1', userId: 'user-1', description: 'desc', deadline: '2026-09-01', status: 'INPROG' }],
+      meta: {
+        total: 1,
+        page: 1,
+        limit: 10,
+        totalPages: 1,
+        hasNextPage: false,
+        hasPreviousPage: false,
+      },
+    };
     mockTaskService.findAll.mockReturnValue(expectedResult);
 
-    const result = controller.getTask('Task', 'user-1');
+    const result = controller.getTask('Task', 'user-1', 1, 10);
 
-    expect(mockTaskService.findAll).toHaveBeenCalledWith('Task', 'user-1');
+    expect(mockTaskService.findAll).toHaveBeenCalledWith('Task', 'user-1', 1, 10);
     expect(result).toEqual(expectedResult);
   });
 
