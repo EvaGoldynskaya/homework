@@ -19,7 +19,7 @@ if (!product.value) {
   product.value = loadedProduct
 }
 
-loading.value = store.loading
+loading.value = store.loadingItem
 error.value = store.error
 </script>
 

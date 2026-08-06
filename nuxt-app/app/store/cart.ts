@@ -1,25 +1,26 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
-import type { CartItem, CartState } from "~/types";
+import type { CartItem } from "~/types";
+
+
+type AddCart = Pick<CartItem, "id" | "title" | "price" | "images">;
 
 export const useCartStore = defineStore("cart", () => {
-  const state = ref<CartState>({ items: [] })
-
-  const items = computed(() => state.value.items)
-  const totalCount = computed(() => state.value.items.reduce((sum, item) => sum + item.quantity, 0))
+  const items = ref<CartItem[]>([])
+  const totalCount = computed(() => items.value.reduce((sum, item) => sum + item.quantity, 0))
   const totalPrice = computed(() =>
-    state.value.items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    items.value.reduce((sum, item) => sum + item.price * item.quantity, 0),
   )
 
-  function addToCart(product: { id: number; title: string; price: number; images?: string[] }) {
-    const existingItem = state.value.items.find((item) => item.id === product.id)
+  function addToCart(product: AddCart) {
+    const existingItem = items.value.find((item) => item.id === product.id)
 
     if (existingItem) {
       existingItem.quantity += 1
       return
     }
 
-    state.value.items.push({
+    items.value.push({
       id: product.id,
       title: product.title,
       price: product.price,
@@ -29,11 +30,11 @@ export const useCartStore = defineStore("cart", () => {
   }
 
   function removeFromCart(id: number) {
-    state.value.items = state.value.items.filter((item) => item.id !== id)
+    items.value = items.value.filter((item) => item.id !== id)
   }
 
   function clearCart() {
-    state.value.items = []
+    items.value = []
   }
 
   return {

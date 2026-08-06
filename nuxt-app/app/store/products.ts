@@ -3,7 +3,8 @@ import type { Product } from "~/types";
 
 export const useProductStore = defineStore("products", () => {
   const products = ref<Product[]>([]);
-  const loading = ref(false);
+  const loadingList = ref(false);
+  const loadingItem = ref(false);
   const error = ref<string | null>(null);
 
   const categories = computed(() => [
@@ -16,32 +17,32 @@ export const useProductStore = defineStore("products", () => {
   );
 
   async function fetchProducts() {
-    loading.value = true;
+    loadingList.value = true;
     error.value = null;
 
     try {
       const response = await $fetch<Product[]>("https://fakestoreapi.com/products");
       products.value = response;
-    } catch (e) {
+    } catch () {
       error.value = "Не удалось загрузить товары";
       products.value = [];
     } finally {
-      loading.value = false;
+      loadingList.value = false;
     }
   }
 
   async function fetchProductById(id: number) {
-    loading.value = true;
+    loadingItem.value = true;
     error.value = null;
 
     try {
       const response = await $fetch<Product>(`https://fakestoreapi.com/products/${id}`);
       return response;
-    } catch (e) {
+    } catch () {
       error.value = "Не удалось загрузить товар";
       return null;
     } finally {
-      loading.value = false;
+      loadingItem.value = false;
     }
   }
 
@@ -59,7 +60,8 @@ export const useProductStore = defineStore("products", () => {
 
   return {
     products,
-    loading,
+    loadingList,
+    loadingItem,
     error,
     categories,
     getProductsByCategory,
