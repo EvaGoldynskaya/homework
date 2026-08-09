@@ -31,6 +31,11 @@
 $ npm install
 ```
 
+```bash
+$ npx prisma generate
+```
+
+
 ## Compile and run the project
 
 ```bash

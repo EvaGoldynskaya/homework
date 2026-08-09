@@ -6,7 +6,6 @@ export class CreateTaskDto{
   @IsUUID()
   userId!: string
   description!: string;
-  @IsDate()
   deadline!: string;
   status!: "DONE" | "INPROG"
 }
